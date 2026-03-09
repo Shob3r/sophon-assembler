@@ -47,11 +47,13 @@ The decoded protobuf file has the following file strucutre:
 
 This file structure repeats itself for hundreds of thounds of lines (The Genshin Impact 6.4 manifest is 868,280 lines long)
 
-The "1" under each "2" subfield is the final piece of the puzzle. You can now assemble a final download link for **ONE** chunk of a program. Combine ``url_prefix`` from the second API endpoint with the hash for a final download link:
+The "1" under a "2" subfield is the final piece of the puzzle. You can now assemble a final download link for **ONE** chunk of a program. Combine ``url_prefix`` from the second API endpoint with the hash for a final download link:
 
 ```txt
 https://{url_prefix}/{download hash}
 ```
+
+That's it! you finally have an assmebled sophon chunk URL. Repeat this several thousand more times, and you might have a game at the end of this! (if you save the chunks correctly that is...)
 
 ## What this project aims to do
 
