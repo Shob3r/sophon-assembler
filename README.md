@@ -52,3 +52,12 @@ The "1" under each "2" subfield is the final piece of the puzzle. You can now as
 ```txt
 https://{url_prefix}/{download hash}
 ```
+
+## What this project aims to do
+
+Projects already exist for downloading and resolving Sohpon chunks. However, I want to deobfuscate this issue and create an endpoint that just has a list of the final URLs to the chunks that is accessible by anyone who needs to access the Sophon chunks for any HoYoVerse game for any reason
+
+The endpoint structure will be as such:
+
+- Main Endpoint: ``https://sophon.shob3r.dev/``. This will list Sophon chunks for every game
+- Game-Specific: ``https://sophon.shob3r.dev/{game_code}``. This will list Sophon chunks for a requested game using their respective game code (bh3, hk4e, hkrpg, nap)
