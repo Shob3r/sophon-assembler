@@ -6,7 +6,7 @@ This is a utility project for [yoohoo](https://github.com/shob3r/yoohoo), aiming
 
 ### Preamble
 
-Sophon is an internal system developed by HoYoVerse for use in their HoYoPlay unified launcher. As far as I can tell, this system is meant to replace their previous system, where URLs to download the files can be found directly on a public endpoint. This endpoint is still being updated for Zenless Zone Zero, Honkai: Star Rail, and Honkai Impact 3rd, with only Genshin using the new Sophon chunk downloading system.
+Sophon is an internal system developed by HoYoVerse for use in their HoYoPlay unified launcher. As far as I can tell, this system is meant to replace their previous system, where URLs to download the files can be found directly on a public endpoint. This endpoint is still being updated for Zenless Zone Zero, Honkai: Star Rail, and Honkai Impact 3rd, with only Genshin having fully transitioned to the new sophon downloading system
 
 The Sophon chunk download system works by hosting many individual links to small chunks of the file (~5-10Mb per chunk), while only giving small portions of the final download URLs for each chunk in their publically accessible endpoints
 
