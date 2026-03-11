@@ -81,6 +81,8 @@ export type GameCode =
     | 'hkrpg'
     | 'nap';
 
+export type Languages = 'cn' | 'en' | 'jp' | 'kr';
+
 export type ManifestData = {
     game: GameCode;
     languages: LanguageInformation[];
@@ -93,6 +95,6 @@ export type LanguageInformation = {
 
 export type ProtoValue = string | number | ProtoObject;
 
-export type ProtoObject = { 
-    [field: string]: ProtoValue | ProtoValue[] 
+export type ProtoObject = {
+    [field: string]: ProtoValue | ProtoValue[];
 };
