@@ -119,8 +119,8 @@ const decodeProtobuf = (buf: Buffer | Uint8Array): ProtoObject => {
         const tag = reader.uint32();
         const field = String(tag >>> 3);
         const wire = tag & 0x7;
-
         let value: ProtoValue;
+
         switch (wire) {
             case 0:
                 value = reader.uint64().toString();
@@ -135,25 +135,30 @@ const decodeProtobuf = (buf: Buffer | Uint8Array): ProtoObject => {
                 } catch {
                     value = Buffer.from(bytes).toString('utf8');
                 }
-
-                const existing = obj[field];
-                if (existing !== undefined) {
-                    if (Array.isArray(existing)) {
-                        existing.push(value);
-                    } else {
-                        obj[field] = [existing, value];
-                    }
-                } else {
-                    obj[field] = value;
-                }
+                break;
             }
+            case 5:
+                value = reader.fixed32();
+                break;
+            default:
+                throw new Error(`Unknown wire type: ${wire}`);
+        }
+
+        const existing = obj[field];
+        if (existing !== undefined) {
+            if (Array.isArray(existing)) {
+                (existing as ProtoValue[]).push(value!);
+            } else {
+                obj[field] = [existing, value!];
+            }
+        } else {
+            obj[field] = value!;
         }
     }
-
     return obj;
 };
 
-(async () => {
+/*(async () => {
     let totalRunTimes = 0;
     for (let i = 0; i < manifestData.length; i++) {
         const gameName = manifestData[i].game;
@@ -166,5 +171,6 @@ const decodeProtobuf = (buf: Buffer | Uint8Array): ProtoObject => {
         }
     }
 
-    console.log(`Total run times: ${totalRunTimes}`)
+    console.log(`Total run times: ${totalRunTimes}`);
 })();
+*/
