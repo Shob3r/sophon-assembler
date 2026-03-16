@@ -7,6 +7,7 @@
         "update-chunks": "bun run UpdateChunkData.ts"
     },
     "dependencies": {
+        "@elysiajs/cors": "^1.4.1",
         "elysia": "1.4.27",
         "protobufjs": "^8.0.0"
     },

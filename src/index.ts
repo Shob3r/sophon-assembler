@@ -2,6 +2,7 @@ import { Elysia, t } from 'elysia';
 import { CloudflareAdapter } from './adapters/Cloudflare';
 import { GameCode, Languages } from './types';
 import { env } from 'cloudflare:workers';
+import { cors } from '@elysiajs/cors';
 
 const GameSchema = t.Object({
     game: t.Unsafe<GameCode>(t.String()),
@@ -47,7 +48,7 @@ const audioLanguageExists = (game: string, language: string) => {
 };
 
 // Will replace these functions with db fetch later
-export default new Elysia({ adapter: CloudflareAdapter })
+export default new Elysia({ adapter: CloudflareAdapter }).use(cors())
     .get('/', async () => {
         let res: any = [];
 
